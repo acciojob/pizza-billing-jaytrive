@@ -25,13 +25,13 @@ public class Pizza {
     }
 
     public int getPrice(){
+        //price+=cheese+topping+bag;
         return this.price;
     }
 
     public void addExtraCheese(){
         if(cheeseadded) return;
         cheese=80;
-        price+=80;
         cheeseadded=true;
     }
 
@@ -39,22 +39,20 @@ public class Pizza {
         if(toppingadded) return;
         if(isVeg) {
             topping = 70;
-            price += 70;
         }
         else {
             topping=120;
-            price+=120;
         }
         toppingadded=true;
     }
 
     public void addTakeaway(){
-        bag+=20;
-        price+=20;
+        bag=20;
         bagadded=true;
     }
 
     public String getBill(){
+        price+=cheese+topping+bag;
         if(cheeseadded) bill+="Extra Cheese Added: "+cheese+"\n";
         if(toppingadded) bill+="Extra Toppings Added: "+topping+"\n";
         if(bagadded) bill+="Paperbag Added: "+bag+"\n";
