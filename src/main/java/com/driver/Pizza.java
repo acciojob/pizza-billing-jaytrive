@@ -29,14 +29,22 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        cheese+=80;
+        if(cheeseadded) return;
+        cheese=80;
         price+=80;
         cheeseadded=true;
     }
 
     public void addExtraToppings(){
-        topping+=70;
-        price+=70;
+        if(toppingadded) return;
+        if(isVeg) {
+            topping = 70;
+            price += 70;
+        }
+        else {
+            topping=120;
+            price+=120;
+        }
         toppingadded=true;
     }
 
