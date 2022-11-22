@@ -4,28 +4,27 @@ public class Pizza {
 
     private int price;
     private Boolean isVeg;
-    private String bill="";
+    private String bill;
     private int cheese;
     private int topping;
     private int bag;
     private boolean cheeseadded=false;
     private boolean toppingadded=false;
     private boolean bagadded=false;
+    private int baseprice;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         if(isVeg){
-            bill+="Base Price Of The Pizza: 300\n";
-            price=300;
+            baseprice=300;
         }
         else{
-            bill+="Base Price Of The Pizza: 400\n";
-            price=400;
+            baseprice=400;
         }
     }
 
     public int getPrice(){
-        //price+=cheese+topping+bag;
+        price=baseprice+cheese+topping+bag;
         return this.price;
     }
 
@@ -52,7 +51,8 @@ public class Pizza {
     }
 
     public String getBill(){
-        price+=cheese+topping+bag;
+        price=baseprice+cheese+topping+bag;
+        bill="Base Price Of The Pizza:"+baseprice+"\n";
         if(cheeseadded) bill+="Extra Cheese Added: "+cheese+"\n";
         if(toppingadded) bill+="Extra Toppings Added: "+topping+"\n";
         if(bagadded) bill+="Paperbag Added: "+bag+"\n";
